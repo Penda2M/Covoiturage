@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Five Hotel</title>
+        <link rel="stylesheet"  href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/fontawesome.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Noto+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+<body>
+  
+
+<div class="about lobster-font-family">
+    <div class="container">
+        <h2 class="text-center text-capitalize">Détails concernant le trajet {{ trajet.depart}} - {{trajet.arrive}}</h2>
+        <img src=" {% static 'imgs/shape.png' %}">
+        
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div class="block">
+                    <div>
+                        <img src=" {% static 'imgs/shape.png' %}">
+                         
+                        <table>
+                            <tr>
+                                <td> <strong>Conducteur</strong> 
+                                <tr>
+                                    <td><h2>Prénom</h2></td><td> </td><td></td>
+                                    <td>  </td><td><h2>NOM</h2></td>
+                                    <td> </td><td> </td>
+                                </tr>
+                                <tr>
+                                <td><h5> {{trajet.conducteur.person.prenom}}</h5></td><td> </td><td></td>
+                                <td>  </td><td><h5>{{trajet.conducteur.person.nom}}</h5></td>
+                                <td> </td><td></td>
+                                </tr>
+                                </td>
+                                <td > <strong>Passagers</strong>
+                                    
+                                    <tr>
+                                    <td><h2>Prénom</h2></td><td> </td><td></td>
+                                    <td>  </td><td><h2>NOM</h2></td>
+                                    <td> </td><td> </td>
+                                    </tr>
+                                    <tr>
+                                        {% for passager in trajet.passager.all %}
+                                    <td><h5> {{passager.person.prenom}} </h5></td><td> </td><td></td>
+                                    <td>  </td><td><h5>{{passager.person.nom}}</h5></td>
+                                    <td> </td><td></td>
+                                    </tr>
+                                    {% endfor %}
+                                </td>
+                                <tr>
+                                    <td>  <button class="btn btn-info btn-bordered">   <a href="{% url 'trajets' %}">Trajets</a></button> </td>
+                                    <td></td>  
+                                    <td>  <button class="btn btn-primary btn-bordered">   <a href="{% url 'conducteurs' %}">Conducteurs</a></button> </td>
+                                    <td> <button class="btn btn-light btn-bordered"> <a href="{% url 'update_trajet' id=trajet.id%}">Modifier</a></button>
+                            </td>
+                                </tr>
+                            </tr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

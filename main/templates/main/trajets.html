@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"  href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <title>Document</title>
+    </head>
+    <body>
+
+            <div class="about lobster-font-family">
+                <div class="container">
+                                      
+                    <h1 class="text-center text-capitalize">Liste des Trajets</h1>
+                    <div class="row">
+                        <div class="col-lg-4 col-12">
+                            <div class="img"></div>
+                        </div>
+                        <div class="col-lg-8 col-12">
+                            <div class="block">
+                                <div>
+                                    <img src=" {% static 'imgs/shape.png' %}">
+                                    <strong>Visibilité</strong>
+                                <table>
+                                        <tr>
+                                        <td><h2>Départ</h2></td><td> </td><td></td>
+                                        <td>  </td><td><h2>Destination</h2></td>
+                                        <td> </td><td> </td>
+                                        <td>  </td><td colspan="2"><h2>Détails</h2></td>
+                                        </tr>
+                                        {% for trajet in trajets %}
+                                        <tr>
+                                        <td><h5> {{trajet.depart}}</h5></td><td> </td><td></td>
+                                        <td>  </td><td><h5>{{trajet.arrive}} </h5></td>
+                                        <td> </td><td></td>
+                                        <td>  </td><td><h5> <a class="btn btn-info btn-rounded"href="{% url 'trajet_detail' id=trajet.id%}">Voir</a> </h5></td>
+                                        <td>  </td><td><h5> <a class="btn btn-danger btn-rounded"href="{% url 'delete_trajet' id=trajet.id%}">Supprimer</a> </h5></td>
+                                        </tr>
+                                        {% endfor %}</p>
+                                </table> 
+                                <a  class="btn btn-primary btn-bordered" href="{% url 'conducteurs' %}">Voir La liste des conducteurs</a>
+                                <!--button><a href="#" class="text-capitalize">Read more</a></button-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>

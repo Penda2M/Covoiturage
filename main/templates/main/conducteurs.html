@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Five Hotel</title>
+        <link rel="stylesheet"  href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/fontawesome.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Noto+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+<body>
+      
+        
+        
+<div class="contact main-font-family text-center">
+    <div class="container">
+        <h2 id="contact">Liste des conducteurs</h2>
+        <div class="row">
+            <div class="col-6">
+                <div class="contact-form">
+                  
+                    <table>
+                            <tr>
+                            <td><h2>Prénom</h2></td><td> </td><td> </td>
+                            <td>  </td><td><h2>NOM</h2></td>
+                            <td> </td><td> </td>
+                            <td>  </td><td><h2>Détails</h2></td>
+                            </tr>
+                            {% for conducteur in conducteurs %}
+                            <tr>
+                            <td><h3> {{conducteur.person.prenom}}</h3></td><td> </td><td></td>
+                            <td>  </td><td><h3>{{conducteur.person.nom}}</h3></td>
+                            <td> </td><td></td>
+                            <td>  </td><td><h3><button><a class="btn btn-info btn-bordered" href="{% url 'un_conducteur' id=conducteur.id%}">Voir</a></button>  </h3></td>
+                            </tr>
+                        
+
+                            {% endfor %}</p>
+                    </table> 
+                </div>
+            </div>
+            <div class="col-6">
+                <h2 class="text-right">Pour voyager tout en sécurité, seul ou accompagné faites confiance à notre entreprise
+        <a class="btn btn-info btn-bordered" href="{% url 'trajets' %}">Voir La liste des trajets</a>
+
+                </h2>
+                <img src="{% static 'imgs/shape.png' %}">
+            </div>
+        </div>
+    </div>
+    <div></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Five Hotel</title>
+        <link rel="stylesheet"  href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/fontawesome.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Noto+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+<body>
+   
+    
+    <strong class="text-align-center"><h1>
+            Liste des Passagers
+        </h1></strong>
+ <footer class="noto-font-family">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <h3>Liens Utils</h3>
+                    <ul class="text-capitalize">
+                        <li><a class="text-info" href="{% url 'index' %}">Accueil</a></li>
+                        <li><a class="text-info" href="{% url 'trajets' %}">Les trajets</a></li>
+                        <li><a  class="text-info" href="{% url 'conducteurs' %}">Les conducteurs</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <table>
+                        <tr>
+                            <td><h2>Prénom</h2></td><td> </td><td></td>
+                            <td>  </td><td><h2>NOM</h2></td>
+                            <td> </td><td> </td>
+                            <td>  </td><td colspan="2"><h2>Infos</h2></td>
+                        </tr>
+                        {% for passager in passagers %}
+                                <tr>
+                                        <td><h5> {{passager.person.prenom}}</h5></td><td> </td><td></td>
+                                        <td>  </td><td><h5>{{passager.person.nom}} </h5></td>
+                                        <td> </td><td></td><td></td>
+                                        <td><h3><a class="btn btn-info btn-bordered" href="{% url 'un_passager' id=passager.id%}">Détails</a>
+                                        </h3>  </td>
+                                </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

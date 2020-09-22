@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Five Hotel</title>
+        <link rel="stylesheet"  href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/fontawesome.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Noto+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+<body>
+  
+
+<div class="about lobster-font-family">
+    <div class="container">
+        <h2 class="text-center text-capitalize">Détails concernant le conducteur {{conducteur.person.prenom}} {{conducteur.person.nom}}</h2>
+        <img src=" {% static 'imgs/shape.png' %}">
+        
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div class="block">
+                    <div>
+                        <img src=" {% static 'imgs/shape.png' %}">
+                         
+                        <table>
+                            <tr>
+                                
+                                <td > <strong>Trajets</strong>
+                                    
+                                    <tr>
+                                    <td><h2>Départ</h2></td><td> </td><td></td>
+                                    <td>  </td><td><h2>Destination</h2></td>
+                                    <td> </td><td> </td>
+                                    <td><h2>Places</h2></td><td> </td><td></td>
+                                    <td>  </td><td><h2>Tarif</h2></td>
+                                    <td> </td><td> </td>
+                                    </tr>
+                                    <tr>
+                                        {% for trajet in conducteur.trajet_set.all %}
+                                            <td><h5> {{trajet.depart}} </h5></td><td> </td><td></td>
+                                            <td>  </td><td><h5>{{trajet.arrive}}</h5></td>
+                                            <td> </td><td></td>
+                                            <td> <h5> {{conducteur.nbre_place}} </h5></td><td></td><td></td>
+                                            <td>  </td><td><h5>{{trajet.prix}}</h5></td>
+                                            <td> </td><td></td>
+                                            </tr>
+                                        {% endfor %}
+                                </td>
+                                <tr>
+                                    <td>     <a class="btn btn-info" href="{% url 'trajets' %}">Trajets</a> </td>
+                                    <td></td> <td></td> <td></td> 
+                                    <td>    <a class="btn btn-info" href="{% url 'conducteurs' %}">Conducteurs</a></td>
+                                    <td>  <a class="btn btn-info" href="{% url 'nouveau_trajet_conducteur' %}">+Trajet</a> </td>
+                                </tr>
+                            </tr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

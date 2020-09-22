@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Five Hotel</title>
+        <link rel="stylesheet"  href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/fontawesome.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Noto+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light text-capitalize main-font-family">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">TDK</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="show-menu">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#room">Variétés</a>
+                        </li>
+                            <a class="nav-link" href="{% url 'conducteurs' %}">Conducteurs</a> 
+                            <a class="nav-link" href="{% url 'trajets' %}">Trajets</a>
+                            <a class="nav-link" href="{% url 'passagers' %}">Passagers</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#blog">Galerie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">contacts</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <header id="home">
+            <div class="small-container">
+                
+                <div class="row">
+                    <div class="col-lg-4 col-12 lobster-font-family d-flex align-items-center">
+                    <h1 class="text-capitalize"><span>TDK Covoiturage</span></h1>
+
+                        <h2>C'est avec un imense plaisir que nous vous accueillons dans notre espace de Covoiturage</h2>
+                    </div>
+                </div>
+
+                <div class="h-slider roboto-font-family welcome d-flex align-items-center justify-content-center">
+                    <div id="headerslider" class="carousel slide" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item carousel-three active"></div>
+                        <div class="carousel-item carousel-two"></div>
+                        <div class="carousel-item carousel-one"></div>
+                      </div>
+                      <a class="carousel-control-prev" href="#headerslider" role="button" data-slide="prev">
+                        <i class="fas fa-angle-double-left"></i>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#headerslider" role="button" data-slide="next">
+                        <i class="fas fa-angle-double-right"></i>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+            <div class="st-rec"></div>
+            <div class="rd-rec"></div>
+        </header>
+        
+        <div class="about lobster-font-family">
+            <div class="container">
+                
+                <h2 class="text-center text-capitalize">A propos de notre Compagnie </h2>
+                <img src=" {% static 'imgs/shape.png' %}">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <h4>Le voyage n'aura jamais été aussi apaissant</h4>
+                        <p>Contrairement à ce que pensent beaucoup de personnes ce ne sont pas les longs trajets qui fqtiguent mais les conditions dans lesquelles s font les voyages. Avec qui s'assoir, avec qui discuter ; dans de questions que notre compagnie vous ferons oublier</p>
+                        <!--button><a href="#">Read more</a></button-->
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="img"></div>
+                    </div>
+                </div>
+                <h2 class="text-capitalize" id="room">Peugeot et Hundai</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-12">
+                        <div class="img"></div>
+                    </div>
+                    <div class="col-lg-8 col-12">
+                        <div class="block">
+                            <div>
+                                <img src=" {% static 'imgs/shape.png' %}">
+                                <strong>$20</strong>
+                                <h5>Des voitures luxieuses</h5>
+                                <p>Vous n'envierez plus les vip pour ce qui est du voyage aisé et détendu  nous mettons à votre disposition une large gamme de voitures aussi bien climatisées qu'équiper avec des outils derniers générations pour savourer votre voyage.</p>
+                                <button><a href="#" class="text-capitalize">Read more</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gallery lobster-font-family" id="blog">
+            <div class="container">
+                <h2 class="text-calitalize text-center">Notre Galerie</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="pic-one"><h4>Voiture de Groupe</h4></div>
+                        <div class="pic-two"><h4>Spacieuse et hight class</h4></div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="pic-three active"><h4>Voyage Individuel</h4></div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="pic-four"><h4>Visite Privé</h4></div>
+                        <div class="pic-five"><h4>Location et Sortie</h4></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider main-font-family">
+            <h2 class="text-center text-capitalize main-font-family">Ce qu'ils pensent de nous</h2>
+          <div id="slideToNext" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#slideToNext" data-slide-to="0" class="active"></li>
+              <li data-target="#slideToNext" data-slide-to="1"></li>
+              <li data-target="#slideToNext" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="carousel-caption d-block">
+                    <img src="{% static 'imgs/pic7.jpeg' %}">
+                  <h5>Amie DIOUF</h5>
+                  <p>J'ai toujours detester les longs voyage du fait que la longueur de la roue s'amplifiait avec les bruits et tout mais à Covoiturage ils m'ont fait me sentir trop à l'aise et sereine vue le calme et la qualité des services</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-caption d-block">
+                    <img src="{% static 'imgs/moi.jpg' %}">
+                  <h5>Mouhsinatou MBACKE</h5>
+                  <p>A l'équipe de Covoiturage je ne saurait vraiment que dire.Partir à Touba et revenir sereinement dans la paix le calme et surtout la convivialité</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-caption d-block">
+                    <img src="{% static 'imgs/Yaram.png' %}">
+                  <h5>Yaram MBAYE</h5>
+                  <p>Spacieuse, confortable et extraordinaire sont les mots qui me viennent à la tete pour qualifier les voitures mises à notre disposition</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact main-font-family text-center">
+            <div class="container">
+                <h2 id="contact">Get in touch</h2>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="contact-form">
+                            <form>
+                                <input type="text" placeholder="Name">
+                                <input type="email" placeholder="Email">
+                                <input type="text" placeholder="Phone">
+                                <textarea placeholder="Message"></textarea>
+                                <input type="submit" value="submit">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-right">Pour voyager tout en sécurité, seul ou accompagné faites confiance à notre entreprise</h2>
+                        <img src="{% static 'imgs/shape.png' %}">
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+        
+        <footer class="noto-font-family">
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <h3>Useful links</h3>
+                            <ul class="text-capitalize">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">A propos</a></li>
+                                <li><a href="#">Variétés</a></li>
+                                <li><a href="#">Galerie</a></li>
+                                <li><a href="#">Contacts</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <h3>Retrouvez nous</h3>
+                            <p>Centre Dakar,<br>
+                                Keur Mbaye Fall, BP 16000, SN<br>
+                                (+221) 77 344 6798<br>
+                                (+2211) 76 694 0821<br>
+                                ndeyependa.mbaye@uadb.edu.sn
+                            </p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12 form">
+                            <h3>News letter</h3>
+                            <form>
+                                <input type="email" placeholder="Email">
+                                <input type="submit">
+                            </form>
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <div class="copyright noto-font-family">
+            <p>© 2020 All Rights Reserved. Design by <a href="#">Ndeye Penda MBAYE</a></p>
+        </div>
+        
+        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script>
+            $(function () {
+                
+                'use strict';
+                
+                var winH = $(window).height();
+                
+                $('header').height(winH);
+                
+                $('.navbar ul.navbar-nav li a').on('click', function (e) {
+                    
+                    var getAttr = $(this).attr('href');
+                    
+                    e.preventDefault();
+                    $('html').animate({scrollTop: $(getAttr).offset().top}, 1000);
+                });
+            });
+        </script>
+    </body>
+</html>
